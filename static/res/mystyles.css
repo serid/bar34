@@ -2,6 +2,14 @@ html {
     font-size: large;
 }
 
+body {
+    background-image: url("imgs/design.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* The navigation bar */
 .my-fix-on-top {
   overflow: hidden;
@@ -78,7 +86,6 @@ html {
     background-color: transparent;
     /* background-image: url("imgs/img1.jpg"); */
     /* opacity: 0.1; */
-    background-color: pink;
 }
 
 /* Class applied to every page-row */
