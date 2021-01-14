@@ -1,0 +1,74 @@
+/* The navigation bar */
+.my-fix-on-top {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  z-index: 100; /* Put on top of everything else */
+  width: 100%;
+}
+
+#navbar-skipper {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+
+#starter-img {
+    background-image: url("imgs/starter.jpg");
+    height: 100vh;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: white;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.my-button {
+    max-width: 100px;
+    padding: 15px;
+    border: solid yellow;
+    border-radius: 100vh;color: yellow;
+    font-family: 'Rubik', sans-serif;
+    transition: 0.3s;
+}
+
+.my-button:hover {
+    background-color: yellow;
+    color: black;
+    text-decoration: none;
+}
+
+/* Should be used to skip navbar in main body */
+.main-under-navbar {
+  margin-top: 100px; /* Add a top margin to avoid content overlay */
+}
+
+/* Opaque page-row */
+.my-page-row-opaque {
+    background-color: white;
+}
+
+/* Transparent page-row */
+.my-page-row-transparent {
+    background-color: transparent;
+    /* background-image: url("imgs/img1.jpg"); */
+    /* opacity: 0.1; */
+    background-color: pink;
+}
+
+/* Class applied to every page-row */
+.my-page-row {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Remove margin from a container */
+.my-no-margin {
+    margin-left: 0;
+    margin-right: 0;
+}
