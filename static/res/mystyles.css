@@ -7,16 +7,16 @@
   width: 100%;
 }
 
+/* Should be used to skip navbar in main body */
 #navbar-skipper {
     margin: 0;
     padding: 0;
     height: 100px;
 }
 
-#starter-img {
-    background-image: url("imgs/starter.jpg");
+.my-one-screen {
     height: 100vh;
-    
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,6 +24,22 @@
     color: white;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+}
+
+.my-one-screen-item {
+    height: 100%;
+}
+
+#carousel1 {
+    background-image: url("imgs/carousel1.jpg");
+}
+
+#carousel2 {
+    background-image: url("imgs/carousel2.jpg");
+}
+
+#carousel3 {
+    background-image: url("imgs/carousel3.jpg");
 }
 
 .my-button {
@@ -39,11 +55,6 @@
     background-color: yellow;
     color: black;
     text-decoration: none;
-}
-
-/* Should be used to skip navbar in main body */
-.main-under-navbar {
-  margin-top: 100px; /* Add a top margin to avoid content overlay */
 }
 
 /* Opaque page-row */
@@ -71,4 +82,9 @@
 .my-no-margin {
     margin-left: 0;
     margin-right: 0;
+}
+
+.my-no-padding {
+    padding-left: 0;
+    padding-right: 0;
 }
