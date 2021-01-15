@@ -28,12 +28,21 @@ body {
 .navbar-light .navbar-brand {
     color: white;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
 
 html:not([data-scroll='0']) .navbar-light .navbar-brand {
     color: black;
 }
 html:not([data-collapsed='1']) .navbar-light .navbar-brand {
     color: black;
+}
+html:not([data-scroll='0']) .navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+}
+html:not([data-collapsed='1']) .navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
 }
 
 /* Makes element transparent if scrolled to top of the page 
