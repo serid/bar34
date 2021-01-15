@@ -19,6 +19,33 @@ body {
   width: 100%;
 }
 
+/* Starting style for navbar */
+.my-navbar {
+    background-color: transparent;
+}
+
+/* Color of brand string */
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+html:not([data-scroll='0']) .navbar-light .navbar-brand {
+    color: black;
+}
+
+/* Makes element transparent if scrolled to top of the page 
+Requires saving data-scroll. See main.js::save_scroll() */
+/* transition is only activated after o2seconds after page load. */
+html[data-scroll='0'][data-o2secondspassed='1'] .my-transparent-if-top {
+    transition: 0.2s;
+}
+
+/* Style for navbar when scrolled lower than page top */
+html:not([data-scroll='0']) .my-transparent-if-top {
+    background-color: #f8f9fa;
+    transition: 0.2s;
+}
+
 /* Should be used to skip navbar in main body */
 #navbar-skipper {
     margin: 0;
