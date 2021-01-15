@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-collapsed="1">
 
 <head>
     <!-- Required meta tags -->
@@ -27,11 +27,11 @@
 </head>
 
 <body>
-    <!-- TODO: navbar should become visible again when user presses the un-collapse button -->
     <nav class="navbar navbar-expand-md navbar-light mb-3 my-navbar my-transparent-if-top my-fix-on-top">
         <div class="container-fluid">
             <a href="#" class="navbar-brand mr-3">Little Sicily</a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
+                onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed == '0' ? '1' : '0';">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -208,7 +208,8 @@
                     <img src="imgs/menu/peperoni.jfif" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title">ПЕПЕРОНИ</h5>
-                        <p class="card-text">Томатный соус, моцарелла, болгарский перец, салями острая, оливковое масло, орегано</p>
+                        <p class="card-text">Томатный соус, моцарелла, болгарский перец, салями острая, оливковое масло,
+                            орегано</p>
                         <h3>560₽</h3>
                     </div>
                 </div>
@@ -216,7 +217,8 @@
                     <img src="imgs/menu/4_formaggi.jfif" class="card-img-top" alt="...">
                     <div class="card-body text-center">
                         <h5 class="card-title">4 СЫРА</h5>
-                        <p class="card-text">Томатный соус, моцарелла, грана падано, горгонзола, асиаго, , орегано, оливковое масло</p>
+                        <p class="card-text">Томатный соус, моцарелла, грана падано, горгонзола, асиаго, , орегано,
+                            оливковое масло</p>
                         <h3>650₽</h3>
                     </div>
                 </div>

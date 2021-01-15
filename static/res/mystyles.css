@@ -32,6 +32,9 @@ body {
 html:not([data-scroll='0']) .navbar-light .navbar-brand {
     color: black;
 }
+html:not([data-collapsed='1']) .navbar-light .navbar-brand {
+    color: black;
+}
 
 /* Makes element transparent if scrolled to top of the page 
 Requires saving data-scroll. See main.js::save_scroll() */
@@ -42,6 +45,10 @@ html[data-scroll='0'][data-o2secondspassed='1'] .my-transparent-if-top {
 
 /* Style for navbar when scrolled lower than page top */
 html:not([data-scroll='0']) .my-transparent-if-top {
+    background-color: #f8f9fa;
+    transition: 0.2s;
+}
+html:not([data-collapsed='1']) .my-transparent-if-top {
     background-color: #f8f9fa;
     transition: 0.2s;
 }
