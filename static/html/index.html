@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-collapsed="1">
+<html lang="en" data-collapsed="true">
 
 <head>
     <!-- Required meta tags -->
@@ -27,11 +27,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light mb-3 my-navbar my-transparent-if-top my-fix-on-top">
+    <nav class="navbar navbar-expand-md navbar-light mb-3 my-transparent-if-top my-fix-on-top">
         <div class="container-fluid">
             <a href="#" class="navbar-brand mr-3">Little Sicily</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
-                onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed == '0' ? '1' : '0';">
+                onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed == 'false' ? 'true' : 'false';">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -51,8 +51,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- <div id="navbar-skipper"></div> -->
 
     <div class="container-fluid my-no-padding">
         <div id="myCarousel" class="carousel slide" data-interval="false">

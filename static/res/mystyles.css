@@ -2,6 +2,7 @@ html {
     font-size: large;
 }
 
+/* Backgorund image for transparent elements */
 body {
     background-image: url("imgs/design.jpg");
     background-attachment: fixed;
@@ -10,21 +11,28 @@ body {
     background-size: cover;
 }
 
-/* The navigation bar */
+/* Class for elements that should be pinned at the top of the view */
 .my-fix-on-top {
   overflow: hidden;
   position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
+  top: 0; /* Position the element at the top of the page */
   z-index: 100; /* Put on top of everything else */
   width: 100%;
 }
 
-/* Starting style for navbar */
-.my-navbar {
+/* Global <html> variables:
+scroll: int = number of pixels scrolled down from top
+collapsed: bool = is navbar collapsed with a button
+*/
+
+/* Makes element transparent if scrolled to top of the page 
+Requires saving data-scroll. See main.js::saveScroll() */
+/* Starting style for transpaernt-if-top */
+.my-transparent-if-top {
     background-color: transparent;
 }
 
-/* Color of brand string */
+/* Color of navbar brand string */
 .navbar-light .navbar-brand {
     color: white;
 }
@@ -35,18 +43,16 @@ body {
 html:not([data-scroll='0']) .navbar-light .navbar-brand {
     color: black;
 }
-html:not([data-collapsed='1']) .navbar-light .navbar-brand {
+html:not([data-collapsed='true']) .navbar-light .navbar-brand {
     color: black;
 }
 html:not([data-scroll='0']) .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
 }
-html:not([data-collapsed='1']) .navbar-light .navbar-nav .nav-link {
+html:not([data-collapsed='true']) .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
 }
 
-/* Makes element transparent if scrolled to top of the page 
-Requires saving data-scroll. See main.js::save_scroll() */
 /* transition is only activated after o2seconds after page load. */
 html[data-scroll='0'][data-o2secondspassed='1'] .my-transparent-if-top {
     transition: 0.2s;
@@ -57,16 +63,9 @@ html:not([data-scroll='0']) .my-transparent-if-top {
     background-color: #f8f9fa;
     transition: 0.2s;
 }
-html:not([data-collapsed='1']) .my-transparent-if-top {
+html:not([data-collapsed='true']) .my-transparent-if-top {
     background-color: #f8f9fa;
     transition: 0.2s;
-}
-
-/* Should be used to skip navbar in main body */
-#navbar-skipper {
-    margin: 0;
-    padding: 0;
-    height: 100px;
 }
 
 .my-one-screen {
