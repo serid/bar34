@@ -98,18 +98,27 @@ html:not([data-collapsed='true']) .my-transparent-if-top {
 }
 
 .my-button {
-    max-width: 100px;
-    padding: 15px;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
     border: solid yellow;
-    border-radius: 100vh;color: yellow;
+    border-radius: 1000px;
+    
     font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    color: yellow;
+
     transition: 0.3s;
 }
 
 .my-button:hover {
     background-color: yellow;
     color: black;
-    text-decoration: none;
+    text-decoration: none; /* remove underlining on links */
 }
 
 .my-arrow-button {
