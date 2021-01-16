@@ -1,5 +1,6 @@
 html {
     font-size: large;
+    scroll-behavior: smooth;
 }
 
 /* Backgorund image for transparent elements */
