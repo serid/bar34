@@ -8,8 +8,10 @@ const log = (f) => (...params) => {
 const update_isnavtransparent = () => {
     if (document.documentElement.dataset.collapsed == 'true' && document.documentElement.dataset.scroll == 0) {
         document.documentElement.dataset.isnavtransparent = 'true';
+        document.getElementById("instagram-icon").src="imgs/inst_inverted.png";
     } else {
         document.documentElement.dataset.isnavtransparent = 'false';
+        document.getElementById("instagram-icon").src="imgs/inst.png";
     }
 }
 
