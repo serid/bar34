@@ -5,6 +5,14 @@ const log = (f) => (...params) => {
     f(...params)
 }
 
+const update_isnavtransparent = () => {
+    if (document.documentElement.dataset.collapsed == 'true' && document.documentElement.dataset.scroll == 0) {
+        document.documentElement.dataset.isnavtransparent = 'true';
+    } else {
+        document.documentElement.dataset.isnavtransparent = 'false';
+    }
+}
+
 const saveScroll = () => {
     // const debounce = (fn) => {
     //     // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -31,6 +39,7 @@ const saveScroll = () => {
 
     const storeScroll = () => {
         document.documentElement.dataset.scroll = window.scrollY;
+        update_isnavtransparent();
     }
 
     storeScroll()
