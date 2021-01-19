@@ -35,6 +35,8 @@ Requires saving data-scroll. See main.js::saveScroll() */
 
 #logo {
     width: 200px;
+    transition: width;
+    transition: 0.2s;
 }
 
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
@@ -44,15 +46,9 @@ html:not([data-isnavtransparent='true']) .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
 }
 
-/* transition is only activated after o2seconds after page load. */
-html[data-scroll='0'][data-o2secondspassed='1'] .my-transparent-if-top {
-    transition: 0.2s;
-}
-
 /* Style for navbar when scrolled lower than page top */
 html:not([data-isnavtransparent='true']) .my-transparent-if-top {
     background-color: #f8f9fa;
-    transition: 0.2s;
 }
 
 html:not([data-isnavtransparent='true']) #logo {
