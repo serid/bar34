@@ -33,6 +33,10 @@ Requires saving data-scroll. See main.js::saveScroll() */
     color: white;
 }
 
+#logo {
+    width: 200px;
+}
+
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
     color: black;
 }
@@ -49,6 +53,10 @@ html[data-scroll='0'][data-o2secondspassed='1'] .my-transparent-if-top {
 html:not([data-isnavtransparent='true']) .my-transparent-if-top {
     background-color: #f8f9fa;
     transition: 0.2s;
+}
+
+html:not([data-isnavtransparent='true']) #logo {
+    width: 100px;
 }
 
 .my-one-screen {
