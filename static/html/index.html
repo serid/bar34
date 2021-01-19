@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light mb-3 my-transparent-if-top my-fix-on-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand mr-3">Little Sicily</a>
+            <a href="#" class="navbar-brand mr-3"><img src="imgs/DailyBar34.png" alt="Logo" width="200px"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
                 onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed == 'false' ? 'true' : 'false';">
                 <span class="navbar-toggler-icon"></span>
@@ -46,9 +46,11 @@
                 <div class="navbar-nav ml-auto">
                     <!-- <a href="#" class="nav-item nav-link">Register</a> -->
                     <!-- <a href="#" class="nav-item nav-link">Login</a> -->
+                    <a href="https://www.instagram.com/daily34bar/" target="_blank" class="nav-item nav-link"><img
+                            src="imgs/inst_inverted.png" width="20px"> Instagram</a>
                     <a href="#" class="nav-item nav-link">О нас</a>
                     <a href="#menu-block" class="nav-item nav-link">Меню</a>
-                    <a href="#" class="nav-item nav-link">Контакты</a>
+                    <a href="#contacts" class="nav-item nav-link">Контакты</a>
                 </div>
             </div>
         </div>
@@ -69,10 +71,12 @@
                         <div id="carousel1" class="container-fluid my-one-screen-item">
                             <div class="row my-one-screen-item">
                                 <div class="col align-self-center">
-                                    <h1>Маленькая Сицилия</h1>
+                                    <h1>Бар 3/4</h1>
+                                    <h3>Wine & Kitchen</h3>
                                     <p>
-                                        Тёплые традиции гостеприимства и семейных рецептов Сицилии
-                                        в самом сердце Петербурга!
+                                        Новый Бар в историческом центре
+                                        с авторской, европейской кухней,
+                                        вином & коктейлями
                                     </p>
                                     <br>
                                     <a href="#menu-block" class="my-button">МЕНЮ</a>
@@ -86,13 +90,12 @@
                         <div id="carousel2" class="container-fluid my-one-screen-item">
                             <div class="row my-one-screen-item">
                                 <div class="col align-self-center">
-                                    <h1>Маленькая Сицилия</h1>
+                                    <h1>Богатая винная карта</h1>
                                     <p>
-                                        Тёплые традиции гостеприимства и семейных рецептов Сицилии
-                                        в самом сердце Петербурга!
+                                        А
                                     </p>
                                     <br>
-                                    <a href="#menu-block" class="my-button">МЕНЮ</a>
+                                    <a href="#menu-block" class="my-button">ВИНО</a>
                                 </div>
                             </div>
                         </div>
@@ -103,13 +106,12 @@
                         <div id="carousel3" class="container-fluid my-one-screen-item">
                             <div class="row my-one-screen-item">
                                 <div class="col align-self-center">
-                                    <h1>Маленькая Сицилия</h1>
+                                    <h1>Уютный интерьер</h1>
                                     <p>
-                                        Тёплые традиции гостеприимства и семейных рецептов Сицилии
-                                        в самом сердце Петербурга!
+                                        Вставить текст
                                     </p>
                                     <br>
-                                    <a href="#menu-block" class="my-button">МЕНЮ</a>
+                                    <a href="#menu-block" class="my-button">ГАЛЕРЕЯ</a>
                                 </div>
                             </div>
                         </div>
@@ -169,63 +171,139 @@
             <div class="col-md-2 order-md-4"></div>
         </div>
 
-        <div id="menu-block" class="row my-page-row my-page-row-opaque justify-content-center">
-            <div id="my-food-menu" class="card-deck">
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/margherita.jfif" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Маргарита</h5>
-                        <p class="card-text">Томатный соус, моцарелла, базилик, орегано, оливковое масло</p>
-                        <h3>350₽</h3>
+        <div class="row">
+            <div class="col-12">
+                <div id="menu-block" style="padding-bottom: 20px;"
+                    class="row my-page-row my-page-row-opaque justify-content-center">
+                    <div id="my-food-menu" class="card-deck">
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Салат с тыквой, мягким сыром и кедровыми орешками</p>
+                                <h3>260₽</h3>
+                            </div>
+                        </div>
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Пене с индейкой, стручкойвой фасолью и томатами черри</p>
+                                <h3>360₽</h3>
+                            </div>
+                        </div>
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/3.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Тартар из говядины с оливками, вяленными томатами и рукколой</p>
+                                <h3>420₽</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/prosciutto.jfif" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Прошутто и грибы</h5>
-                        <p class="card-text">Томатный соус, моцарелла, прошутто котто, шампиньоны, орегано, оливковое
-                            масло</p>
-                        <h3>480₽</h3>
-                    </div>
-                </div>
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/siciliana.jfif" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">СИЦИЛИЙСКАЯ</h5>
-                        <p class="card-text">Томатный соус, салями, моцарелла, оливки, орегано, оливковое масло</p>
-                        <h3>490₽</h3>
-                    </div>
-                </div>
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/little_sicily.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">ПИЦЦА ЛИТТЛ СИЦИЛИ</h5>
-                        <p class="card-text">Томатный соус, моцарелла, базилик,орегано, оливковое масло</p>
-                        <h3>690₽</h3>
-                    </div>
-                </div>
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/peperoni.jfif" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">ПЕПЕРОНИ</h5>
-                        <p class="card-text">Томатный соус, моцарелла, болгарский перец, салями острая, оливковое масло,
-                            орегано</p>
-                        <h3>560₽</h3>
-                    </div>
-                </div>
-                <div class="card my-food-menu-card">
-                    <img src="imgs/menu/4_formaggi.jfif" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">4 СЫРА</h5>
-                        <p class="card-text">Томатный соус, моцарелла, грана падано, горгонзола, асиаго, , орегано,
-                            оливковое масло</p>
-                        <h3>650₽</h3>
+                <div id="menu-block" style="padding-top: 0px;"
+                    class="row my-page-row my-page-row-opaque justify-content-center">
+                    <div id="my-food-menu" class="card-deck">
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/4.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Куриная грудка с полентой и грибным соусом</p>
+                                <h3>360₽</h3>
+                            </div>
+                        </div>
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/5.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Гороховый крем-суп с беконом и сливками</p>
+                                <h3>230₽</h3>
+                            </div>
+                        </div>
+                        <div class="card my-food-menu-card">
+                            <img src="imgs/menu/6.jpg" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <p class="card-text">Панна-Котта с топпингом из красного вина</p>
+                                <h3>220₽</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row my-page-row my-page-row-opaque">
+        <div class="row justify-content-center">
+            <div class="col-md-2"></div>
+            <div class="col-12 col-md-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Тапас</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Тапас с паштетом из куры и грецким орехом</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с моцареллой, соусом песто и лососем</td>
+                            <td>130</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с сальсой из вяленных овощей</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с грибами в сливках и беконом</td>
+                            <td>130</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с курой и печёным перцем</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с курой, рукколой и соусом из пармезана</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>Тапас с паштетом из куры и мёдом</td>
+                            <td>110</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Салаты</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Теплый салат с беконом, томатами черри и сыром моцарелла</td>
+                            <td>360</td>
+                        </tr>
+                        <tr>
+                            <td>Салат с куриной грудкой, булгуром и соусом пикада</td>
+                            <td>280</td>
+                        </tr>
+                        <tr>
+                            <td>Салат с тыквой, мягким сыром и кедровыми орешками</td>
+                            <td>260</td>
+                        </tr>
+                        <tr>
+                            <td>Салат с кальмаром, брюссельской капустой и соусом песто</td>
+                            <td>350</td>
+                        </tr>
+                        <tr>
+                            <td>Салат из свежих овощей</td>
+                            <td>220</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div id="contacts" class="row my-page-row my-page-row-opaque">
             <!-- Left -->
             <div class="col-md-2"></div>
             <div class="col-12 col-md-4">
