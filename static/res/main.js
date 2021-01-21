@@ -5,6 +5,31 @@ const log = (f) => (...params) => {
     f(...params)
 }
 
+const my = {
+    scrollToElement: (element) => {
+        if (window.scrollY != 0) {
+            let navbar_height = document.getElementById("my-navbar").getBoundingClientRect().height;
+            window.scroll(0, window.scrollY + element.getBoundingClientRect().top - navbar_height + 1);
+        } else {
+            let logo_e = document.getElementById('logo');
+            let html_e = document.getElementsByTagName('html')[0];
+
+            logo_e.style.transitionDuration = "0.0s";
+            
+            html_e.style.scrollBehavior = 'auto';
+            window.scroll(0, 1);
+            html_e.style.scrollBehavior = 'smooth';
+            
+            requestAnimationFrame(() => {
+                let navbar_height = document.getElementById("my-navbar").getBoundingClientRect().height;
+                window.scroll(0, window.scrollY + element.getBoundingClientRect().top - navbar_height + 1);
+
+                logo_e.style.transitionDuration = "";
+            })
+        }
+    }
+}
+
 const update_isnavtransparent = () => {
     if (document.documentElement.dataset.collapsed == 'true' && document.documentElement.dataset.scroll == 0) {
         document.documentElement.dataset.isnavtransparent = 'true';

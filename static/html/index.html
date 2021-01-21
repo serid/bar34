@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light mb-3 my-transparent-if-top my-fix-on-top">
+    <nav id="my-navbar" class="navbar navbar-expand-md navbar-light mb-3 my-transparent-if-top my-fix-on-top">
         <div class="container-fluid">
             <a href="#" class="navbar-brand mr-3"><img id="logo" src="imgs/DailyBar34.png" alt="Logo"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
@@ -79,7 +79,8 @@
                                         вином и коктейлями
                                     </p>
                                     <br>
-                                    <a href="#dish-gallery" class="my-button">МЕНЮ</a>
+                                    <!-- <a href="#dish-gallery" class="my-button">МЕНЮ</a> -->
+                                    <a onclick="my.scrollToElement(document.getElementById('dish-menu-start'));" class="my-button">МЕНЮ</a>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +96,8 @@
                                         А
                                     </p> -->
                                     <br>
-                                    <a href="#wine-menu" class="my-button">ВИНО</a>
+                                    <!-- <a href="#wine-menu" class="my-button">ВИНО</a> -->
+                                    <a onclick="my.scrollToElement(document.getElementById('wine-menu-start'));" class="my-button">ВИНО</a>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +113,8 @@
                                         Вставить текст
                                     </p> -->
                                     <br>
-                                    <a href="#interior-gallery" class="my-button">ГАЛЕРЕЯ</a>
+                                    <!-- <a href="#interior-gallery" class="my-button">ГАЛЕРЕЯ</a> -->
+                                    <a onclick="my.scrollToElement(document.getElementById('interior-gallery-start'));" class="my-button">ГАЛЕРЕЯ</a>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +233,7 @@
             </div>
         </div>
 
-        <hr>
+        <hr id="dish-menu-start">
 
         <!-- Dish Menu table -->
         <div>
@@ -461,10 +464,10 @@
             </div>
         </div>
 
-        <hr>
+        <hr id="wine-menu-start">
 
         <!-- Wine table -->
-        <div id="wine-menu">
+        <div>
             <h1 style="text-align: center; margin-bottom: 25px;">Винная карта</h1>
             <div class="row">
                 <div class="col-md-3"></div>
@@ -599,9 +602,9 @@
             </div>
         </div>
 
-        <hr>
+        <hr id="interior-gallery-start">
 
-        <div id="interior-gallery" class="row my-page-row">
+        <div class="row my-page-row">
             <div class="col-md-2"></div>
             <div class="col-12 col-md-8">
                 <div id="gallery-carousel" class="carousel slide" data-interval="false">
