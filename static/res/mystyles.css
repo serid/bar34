@@ -33,6 +33,10 @@ Requires saving data-scroll. See main.js::saveScroll() */
     color: white;
 }
 
+.navbar-light .navbar-nav .nav-link:hover {
+    color: grey;
+}
+
 #logo {
     width: 200px;
     transition: width;
@@ -44,6 +48,9 @@ html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
 }
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-nav .nav-link {
     color: rgba(0,0,0,.5);
+}
+html:not([data-isnavtransparent='true']) .navbar-light .navbar-nav .nav-link:hover {
+    color: grey;
 }
 
 /* Style for navbar when scrolled lower than page top */
