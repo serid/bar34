@@ -1,9 +1,23 @@
-if (Test-Path "logs") {
-    Write-Output "[] `"logs`" dir exists"
-} else {
-    New-Item -Path "." -Name "logs" -ItemType "directory"
-    Write-Output "[] `"logs`" dir created"
+function MaybeCreateDir {
+    param (
+        $Name
+    )
+
+    if (Test-Path $Name -PathType "Leaf") {
+        Write-Output "[] Cannot create dir `"${Name}`". File with this name exists"
+        throw "Err"
+    }
+
+    if (Test-Path $Name -PathType "Container") {
+        Write-Output "[] `"${Name}`" dir exists"
+    } else {
+        New-Item -Path "." -Name $Name -ItemType "directory"
+        Write-Output "[] `"${Name}`" dir created"
+    }
 }
+
+MaybeCreateDir -Name "logs"
+MaybeCreateDir -Name "temp"
 
 if (Test-Path "logs\nginx.pid") {
     Write-Output "[] Server is already running"
