@@ -168,3 +168,7 @@ html:not([data-isnavtransparent='true']) #logo {
     background-color: #222222;
     color: white;
 }
+
+#hidden-counter {
+    transition: 0.2s;
+}

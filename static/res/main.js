@@ -80,8 +80,33 @@ const saveScroll = () => {
     }
 }
 
+const count_a_visit = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "increment.php?m=inc", true);
+    xhr.send();
+}
+
+const get_visitor_counter = (f) => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "increment.php?m=show", true);
+    xhr.onload = () => {
+        let sliced = xhr.response.slice(4);
+        f(sliced);
+    }
+    xhr.send();
+}
+
+const show_visitor_counter = () => {
+    get_visitor_counter((n) => {
+        let counter_e = document.getElementById('hidden-counter');
+        counter_e.style = "height: 20px;";
+        counter_e.textContent = "Посещений сайта за сегодня: " + n;
+    })
+}
+
 const main = () => {
-    saveScroll()
+    saveScroll();
+    count_a_visit();
 }
 
 main()
