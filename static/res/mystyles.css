@@ -80,19 +80,6 @@ html:not([data-isnavtransparent='true']) #logo {
     background-size: cover;
 }
 
-#carousel1 {
-    background-image: url("imgs/carousel1.jpg");
-}
-
-#carousel2 {
-    background-image: url("imgs/carousel2.jpg");
-}
-
-#carousel3 {
-    background-position: bottom;
-    background-image: url("imgs/carousel3.jpg");
-}
-
 .my-button {
     padding-left: 48px;
     padding-right: 48px;
