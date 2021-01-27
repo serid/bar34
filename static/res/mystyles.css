@@ -43,6 +43,11 @@ Requires saving data-scroll. See main.js::saveScroll() */
     transition: width;
     transition: 0.2s;
 }
+#logo-mob {
+    width: 150px;
+    transition: width;
+    transition: 0.2s;
+}
 
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
     color: black;
@@ -60,6 +65,9 @@ html:not([data-isnavtransparent='true']) .my-transparent-if-top {
 }
 
 html:not([data-isnavtransparent='true']) #logo {
+    width: 100px;
+}
+html:not([data-isnavtransparent='true']) #logo-mob {
     width: 100px;
 }
 
