@@ -15,11 +15,11 @@ const my = {
             let html_e = document.getElementsByTagName('html')[0];
 
             logo_e.style.transitionDuration = "0.0s";
-            
+
             html_e.style.scrollBehavior = 'auto';
             window.scroll(0, 1);
             html_e.style.scrollBehavior = 'smooth';
-            
+
             requestAnimationFrame(() => {
                 let navbar_height = document.getElementById("my-navbar").getBoundingClientRect().height;
                 window.scroll(0, window.scrollY + element.getBoundingClientRect().top - navbar_height + 1);
@@ -33,10 +33,10 @@ const my = {
 const update_isnavtransparent = () => {
     if (document.documentElement.dataset.collapsed == 'true' && document.documentElement.dataset.scroll == 0) {
         document.documentElement.dataset.isnavtransparent = 'true';
-        document.getElementById("instagram-icon").src="imgs/inst_inverted.png";
+        document.getElementById("instagram-icon").src = "imgs/inst_inverted.png";
     } else {
         document.documentElement.dataset.isnavtransparent = 'false';
-        document.getElementById("instagram-icon").src="imgs/inst.png";
+        document.getElementById("instagram-icon").src = "imgs/inst.png";
     }
 }
 
