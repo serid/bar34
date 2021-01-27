@@ -66,7 +66,7 @@
     </nav>
 
     <div class="container-fluid my-no-padding">
-        <div id="myCarousel" class="carousel slide" data-interval="false">
+        <div id="myCarousel" class="d-none d-md-block carousel slide" data-interval="false">
             <!-- Carousel indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -145,6 +145,90 @@
                 </div>
             </a>
             <a class="carousel-control-next" href="#myCarousel" data-slide="next" style="width: 110px;">
+                <div class="align-self-end" style="padding-bottom: 50px;">
+                    <span class="d-inline d-md-none mbri-right my-arrow-button"></span>
+                </div>
+            </a>
+        </div>
+        <div id="myCarousel2" class="d-block d-md-none carousel slide" data-interval="false">
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel2" data-slide-to="1"></li>
+                <li data-target="#myCarousel2" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for carousel items -->
+            <div class="carousel-inner">
+                <div class="my-one-screen carousel-item active">
+                    <div class="container-fluid my-one-screen-item"
+                        style="background-image: url('imgs/first-screen-carousel/mob1.jpg');">
+                        <div class="row my-one-screen-item">
+                            <div class="col align-self-center">
+                                <h1>Бар 3/4</h1>
+                                <h3>Wine & Kitchen</h3>
+                                <p>
+                                    Новый Бар в историческом центре
+                                    с авторской, европейской кухней,
+                                    вином и коктейлями
+                                </p>
+                                <br>
+                                <!-- <a href="#dish-gallery" class="my-button">МЕНЮ</a> -->
+                                <a onclick="my.scrollToElement(document.getElementById('dish-menu-start'));"
+                                    class="my-button">МЕНЮ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-one-screen carousel-item">
+                    <div class="container-fluid my-one-screen-item"
+                        style="background-image: url('imgs/first-screen-carousel/mob2.jpg');">
+                        <div class="row my-one-screen-item">
+                            <div class="col align-self-center">
+                                <h1>Широкий выбор вин</h1>
+                                <!-- <p>
+                                        А
+                                    </p> -->
+                                <br>
+                                <!-- <a href="#wine-menu" class="my-button">ВИНО</a> -->
+                                <a onclick="my.scrollToElement(document.getElementById('wine-menu-start'));"
+                                    class="my-button">ВИНО</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-one-screen carousel-item">
+                    <div class="container-fluid my-one-screen-item"
+                        style="background-image: url('imgs/first-screen-carousel/mob3.jpg'); background-position: bottom;">
+                        <div class="row my-one-screen-item">
+                            <div class="col align-self-center">
+                                <h1>Уютный интерьер</h1>
+                                <!-- <p>
+                                        Вставить текст
+                                    </p> -->
+                                <br>
+                                <!-- <a href="#interior-gallery" class="my-button">ГАЛЕРЕЯ</a> -->
+                                <a onclick="my.scrollToElement(document.getElementById('interior-gallery-start'));"
+                                    class="my-button">ГАЛЕРЕЯ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel controls -->
+            <a class="carousel-control-prev" href="#myCarousel2" data-slide="prev">
+                <span class="d-none d-md-inline mbri-left my-arrow-button"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel2" data-slide="next">
+                <span class="d-none d-md-inline mbri-right my-arrow-button"></span>
+            </a>
+
+            <!-- Mobile Carousel controls -->
+            <a class="carousel-control-prev" href="#myCarousel2" data-slide="prev" style="width: 110px;">
+                <div class="align-self-end" style="padding-bottom: 50px;">
+                    <span class="d-inline d-md-none mbri-left my-arrow-button"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel2" data-slide="next" style="width: 110px;">
                 <div class="align-self-end" style="padding-bottom: 50px;">
                     <span class="d-inline d-md-none mbri-right my-arrow-button"></span>
                 </div>
