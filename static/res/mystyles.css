@@ -39,7 +39,7 @@ Requires saving data-scroll. See main.js::saveScroll() */
 }
 
 #logo {
-    width: 200px;
+    width: 150px;
     transition: width;
     transition: 0.2s;
 }
