@@ -130,8 +130,8 @@ html:not([data-isnavtransparent='true']) #logo {
 .my-page-row {
     padding-top: 60px;
     padding-bottom: 60px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Remove margin from a container */
