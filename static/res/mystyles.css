@@ -134,17 +134,6 @@ html:not([data-isnavtransparent='true']) #logo {
     padding-right: 0px;
 }
 
-/* Remove margin from a container */
-.my-no-margin {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.my-no-padding {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .my-food-menu-card {
     margin-top: 10px;
     width: 300px;
