@@ -75,6 +75,7 @@
                 <li data-target="#first-screen-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#first-screen-carousel" data-slide-to="1"></li>
                 <li data-target="#first-screen-carousel" data-slide-to="2"></li>
+                <li data-target="#first-screen-carousel" data-slide-to="3"></li>
             </ol>
             <!-- Wrapper for carousel items -->
             <div class="carousel-inner">
@@ -132,6 +133,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="my-one-screen carousel-item">
+                    <div class="container-fluid my-one-screen-item"
+                        style="background-image: url('imgs/first-screen-carousel/4.jpg');">
+                        <div class="row my-one-screen-item">
+                            <div class="col align-self-center">
+                                <h1>Банкеты</h1>
+                                <p>
+                                    Описание
+                                </p>
+                                <br>
+                                <!-- <a href="#contacts" class="my-button">ПОДРОБНЕЕ</a> -->
+                                <a onclick="my.scrollToElement(document.getElementById('contacts'));"
+                                    class="my-button">ПОДРОБНЕЕ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Carousel controls -->
             <a class="carousel-control-prev" href="#first-screen-carousel" data-slide="prev">
@@ -159,6 +177,7 @@
                 <li data-target="#first-screen-carousel-mob" data-slide-to="0" class="active"></li>
                 <li data-target="#first-screen-carousel-mob" data-slide-to="1"></li>
                 <li data-target="#first-screen-carousel-mob" data-slide-to="2"></li>
+                <li data-target="#first-screen-carousel-mob" data-slide-to="3"></li>
             </ol>
             <!-- Wrapper for carousel items -->
             <div class="carousel-inner">
@@ -212,6 +231,23 @@
                                 <!-- <a href="#interior-gallery" class="my-button">ГАЛЕРЕЯ</a> -->
                                 <a onclick="my.scrollToElement(document.getElementById('interior-gallery-start'));"
                                     class="my-button">ГАЛЕРЕЯ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-one-screen carousel-item">
+                    <div class="container-fluid my-one-screen-item"
+                        style="background-image: url('imgs/first-screen-carousel/mob4.jpg'); background-position: bottom;">
+                        <div class="row my-one-screen-item">
+                            <div class="col align-self-center">
+                                <h1>Банкеты</h1>
+                                <p>
+                                    Описание
+                                </p>
+                                <br>
+                                <!-- <a href="#contacts" class="my-button">ПОДРОБНЕЕ</a> -->
+                                <a onclick="my.scrollToElement(document.getElementById('contacts'));"
+                                    class="my-button">ПОДРОБНЕЕ</a>
                             </div>
                         </div>
                     </div>
@@ -286,9 +322,9 @@
         </div>
         -->
 
-        <div id="dish-gallery" class="row">
+        <div id="dish-gallery" class="row my-page-row my-page-row-bright">
             <div class="col-12">
-                <div style="padding-bottom: 20px;" class="row my-page-row my-page-row-opaque justify-content-center">
+                <div style="padding-bottom: 20px;" class="row justify-content-center">
                     <div id="my-food-menu" class="card-deck">
                         <div class="card my-food-menu-card">
                             <img src="imgs/menu/1.smol.jpg" class="card-img-top" alt="...">
@@ -313,7 +349,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="padding-top: 0px;" class="row my-page-row my-page-row-opaque justify-content-center">
+                <div style="padding-top: 0px;" class="row justify-content-center">
                     <div id="my-food-menu" class="card-deck">
                         <div class="card my-food-menu-card">
                             <img src="imgs/menu/4.smol.jpg" class="card-img-top" alt="...">
@@ -344,7 +380,7 @@
         <hr id="dish-menu-start">
 
         <!-- Dish Menu table -->
-        <div>
+        <div class="my-page-row my-page-row-bright">
             <h1 style="text-align: center; margin-bottom: 25px;">Меню</h1>
             <div class="row">
                 <div class="col-md-2"></div>
@@ -575,7 +611,7 @@
         <hr id="wine-menu-start">
 
         <!-- Wine table -->
-        <div>
+        <div class="my-page-row my-page-row-bright">
             <h1 style="text-align: center; margin-bottom: 25px;">Винная карта</h1>
             <div class="row">
                 <div class="col-md-3"></div>
@@ -845,7 +881,7 @@
 
         <hr id="interior-gallery-start" class="my-0">
 
-        <div id="gallery" class="row my-page-row">
+        <div id="gallery" class="row my-page-row my-page-row-dark">
             <div class="col-md-2"></div>
             <div class="col-12 col-md-8 px-0">
                 <div id="gallery-carousel" class="carousel slide" data-interval="false">
@@ -891,7 +927,7 @@
             <div class="col-md-2"></div>
         </div>
 
-        <div id="contacts" class="row my-page-row my-page-row-opaque">
+        <div id="contacts" class="row my-page-row my-page-row-dark" style="background-color: #111111;">
             <!-- Left -->
             <div class="col-md-2"></div>
             <div class="col-12 col-md-4">

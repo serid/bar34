@@ -126,6 +126,18 @@ html:not([data-isnavtransparent='true']) #logo {
     background-size: cover;
 }
 
+/* Dark page-row */
+.my-page-row-dark {
+    background-color: #222222;
+    color: white;
+}
+
+/* Bright page-row */
+.my-page-row-bright {
+    background-color: white;
+    color: black;
+}
+
 /* Class applied to every page-row */
 .my-page-row {
     padding-top: 60px;
@@ -138,11 +150,6 @@ html:not([data-isnavtransparent='true']) #logo {
     margin-top: 10px;
     width: 300px;
     min-width: 200px;
-}
-
-#gallery {
-    background-color: #222222;
-    color: white;
 }
 
 #hidden-counter {
