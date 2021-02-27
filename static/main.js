@@ -1,10 +1,5 @@
 const identity = (a) => a
 
-const log = (f) => (...params) => {
-    console.log('a')
-    f(...params)
-}
-
 const saveScroll = () => {
     // const debounce = (fn) => {
     //     // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -36,7 +31,7 @@ const saveScroll = () => {
 
     storeScroll()
 
-    document.addEventListener('scroll', debounce(log(storeScroll)), { passive: true });
+    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 
     window.onload = () => {
         setTimeout(() => {
