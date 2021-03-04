@@ -95,7 +95,7 @@ const my = {
         get_visitor_counter((n) => {
             let counter_e = document.getElementById('hidden-counter');
             counter_e.style = "height: 20px;";
-            counter_e.textContent = "Посещений сайта за сегодня: " + n;
+            counter_e.textContent = "Посещений сайта за всё время: " + n;
         })
     },
 }
