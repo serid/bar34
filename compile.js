@@ -2,7 +2,7 @@
 // The script compiles site in `options.siteRoot` directory into `options.siteRoot`\newbuild.
 // Then it moves `options.siteRoot`\newbuild to `options.outputDirectory`.
 // Compilation process ignores filepaths containing `options.ignorePattern`;
-// Copies filepaths containing `options.libPattern` without changing file names or contents;
+// Copies filepaths containing `options.copyPattern` without changing file names or contents;
 // Copies filepaths     containing `options.textFilePattern` changing file name to a randomly generated string AND changes all references to files with randomized names to correct names;
 // Copies filepaths not containing `options.textFilePattern` changing file name to a randomly generated string without changing file contents;
 
@@ -11,7 +11,7 @@ const options = {
     outputDirectory: '.\\build\\',
 
     ignorePattern: /\.rese/,
-    libPattern: /lib\\/,
+    copyPattern: /(lib\\|.*\.php)/,
     textFilePattern: /(\.html$|\.js$)/,
 }
 
@@ -114,7 +114,7 @@ const dostuff = async () => {
     filepaths = filepaths.filter((s) => !isIgnoredFile(s));
 
     // Copy library files verbatim
-    const isLibFile = (path) => options.libPattern.test(path);
+    const isLibFile = (path) => options.copyPattern.test(path);
     let libspaths = filepaths.filter((s) => isLibFile(s));
     for (const oldPath of libspaths) {
         let newPath = path.resolve('newbuild', oldPath);
