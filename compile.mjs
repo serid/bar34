@@ -80,14 +80,14 @@ const replaceAllOfMap = (s, mapping) => {
 }
 
 const myFsPromises = {
-    copyFile: async (src, dest, ...args) => {
-        await copyFile(src, dest, ...args).catch((reason) => {
+    copyFile: async (src, dest, mode = undefined) => {
+        await copyFile(src, dest, mode).catch((reason) => {
             // If the reason is ENOENT (tried to create a file in nonexistent directory), create the directory and retry.
             if (reason.code === 'ENOENT') {
                 let newDirName = dirname(dest);
                 console.log(`Creating directory: ${relative('', newDirName)}`);
                 mkdir(newDirName, {recursive: true}).then(() => {
-                    return copyFile(src, dest, ...args);
+                    return copyFile(src, dest, mode);
                 });
             } else {
                 throw reason;

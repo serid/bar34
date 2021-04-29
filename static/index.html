@@ -44,7 +44,7 @@
     <div class="container-fluid">
         <a href="#" class="navbar-brand mr-3"><img id="logo" src="imgs/DailyBar34.png" alt="Logo"></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"
-                onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed === 'false' ? 'true' : 'false'; my.update_isnavtransparent();">
+                onclick="document.documentElement.dataset.collapsed = document.documentElement.dataset.collapsed === 'false' ? 'true' : 'false'; my.updateIsNavTransparent();">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -1034,7 +1034,7 @@
         <!-- Left -->
         <div class="col-md-2"></div>
         <div class="col-12 col-md-4">
-            <h2 onclick="my.show_visitor_counter();">КОНТАКТЫ</h2>
+            <h2 onclick="my.showVisitorCounter();">КОНТАКТЫ</h2>
             <p id="hidden-counter" style="height: 0; overflow: hidden;">
                 This text will be replaced with visitor count
             </p>

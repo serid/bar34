@@ -22,31 +22,26 @@ const saveScroll = () => {
     // };
 
     // don't debounce
-    const debounce = identity
+    const debounce = identity;
 
-    const storeScroll = () => {
-        document.documentElement.dataset.scroll = window.scrollY;
-        my.update_isnavtransparent();
-    }
+    my.updateIsNavTransparent();
 
-    storeScroll()
-
-    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+    document.addEventListener('scroll', debounce(my.updateIsNavTransparent), {passive: true});
 
     window.onload = () => {
         setTimeout(() => {
-            document.documentElement.dataset.o2secondspassed = 1;
+            document.documentElement.dataset.o2secondspassed = (1).toString();
         }, 0.2);
     }
 }
 
-const count_a_visit = () => {
+const countAVisit = () => {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "increment.php?m=inc", true);
     xhr.send();
 }
 
-const get_visitor_counter = (f) => {
+const getVisitorCount = (f) => {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "increment.php?m=show", true);
     xhr.onload = () => {
@@ -59,7 +54,7 @@ const get_visitor_counter = (f) => {
 // Object for public functions in global scope to call from html events
 const my = {
     scrollToElement: (element) => {
-        if (window.scrollY != 0) {
+        if (window.scrollY !== 0) {
             let navbar_height = document.getElementById("my-navbar").getBoundingClientRect().height;
             window.scroll(0, window.scrollY + element.getBoundingClientRect().top - navbar_height + 1);
         } else {
@@ -81,8 +76,8 @@ const my = {
         }
     },
 
-    update_isnavtransparent: () => {
-        if (document.documentElement.dataset.collapsed == 'true' && document.documentElement.dataset.scroll == 0) {
+    updateIsNavTransparent: () => {
+        if (document.documentElement.dataset.collapsed === 'true' && window.scrollY === 0) {
             document.documentElement.dataset.isnavtransparent = 'true';
             document.getElementById("instagram-icon").src = "imgs/inst_inverted.png";
         } else {
@@ -91,8 +86,8 @@ const my = {
         }
     },
 
-    show_visitor_counter: () => {
-        get_visitor_counter((n) => {
+    showVisitorCounter: () => {
+        getVisitorCount((n) => {
             let counter_e = document.getElementById('hidden-counter');
             counter_e.style = "height: 20px;";
             counter_e.textContent = "Посещений сайта за всё время: " + n;
@@ -104,7 +99,7 @@ window.my = my;
 
 const main = () => {
     saveScroll();
-    count_a_visit();
+    countAVisit();
 }
 
 main()

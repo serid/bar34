@@ -5,21 +5,20 @@ html {
 
 /* Class for elements that should be pinned at the top of the view */
 .my-fix-on-top {
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the element at the top of the page */
-  z-index: 100; /* Put on top of everything else */
-  width: 100%;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the element at the top of the page */
+    z-index: 100; /* Put on top of everything else */
+    width: 100%;
 }
 
 /* Global <html> variables:
-scroll: int = number of pixels scrolled down from top
-collapsed: bool = is navbar collapsed with a button
+collapsed: "true" or "false" = is navbar collapsed with a button
 isnavtransparent: bool = controls whether navbar should be transparent
 */
 
-/* Makes element transparent if scrolled to top of the page 
-Requires saving data-scroll. See main.js::saveScroll() */
+/* Makes element transparent if scrolled to top of the page
+Requires computing transparency. See main.js::updateIsNavTransparent() */
 /* Starting style for transpaernt-if-top */
 .my-transparent-if-top {
     background-color: transparent;
@@ -29,6 +28,7 @@ Requires saving data-scroll. See main.js::saveScroll() */
 .navbar-light .navbar-brand {
     color: white;
 }
+
 .navbar-light .navbar-nav .nav-link {
     color: white;
     cursor: pointer;
@@ -46,9 +46,11 @@ Requires saving data-scroll. See main.js::saveScroll() */
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
     color: black;
 }
+
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-nav .nav-link {
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
 }
+
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-nav .nav-link:hover {
     color: grey;
 }
@@ -80,14 +82,11 @@ html:not([data-isnavtransparent='true']) #logo {
 }
 
 .my-button {
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 16px 48px;
 
     border: solid yellow;
     border-radius: 1000px;
-    
+
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     font-size: 16px;
