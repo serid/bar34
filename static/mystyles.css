@@ -40,8 +40,7 @@ Requires saving data-scroll. See main.js::saveScroll() */
 
 #logo {
     width: 150px;
-    transition: width;
-    transition: 0.2s;
+    transition: width, 0.2s;
 }
 
 html:not([data-isnavtransparent='true']) .navbar-light .navbar-brand {
@@ -140,16 +139,17 @@ html:not([data-isnavtransparent='true']) #logo {
 
 /* Class applied to every page-row */
 .my-page-row {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 60px 0px;
 }
 
 .my-food-menu-card {
     margin-top: 10px;
     width: 300px;
     min-width: 200px;
+}
+
+.gmap_canvas {
+    background: none !important;
 }
 
 #hidden-counter {
