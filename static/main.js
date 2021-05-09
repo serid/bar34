@@ -36,19 +36,13 @@ const saveScroll = () => {
 }
 
 const countAVisit = () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "increment.php?m=inc", true);
-    xhr.send();
+    fetch("increment.php?m=inc").then();
 }
 
-const getVisitorCount = (f) => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "increment.php?m=show", true);
-    xhr.onload = () => {
-        let sliced = xhr.response.slice(4);
-        f(sliced);
-    }
-    xhr.send();
+const getVisitorCount = () => {
+    return fetch("increment.php?m=show")
+        .then(response => response.text())
+        .then(s => s.slice(4));
 }
 
 // Object for public functions in global scope to call from html events
@@ -87,11 +81,11 @@ const my = {
     },
 
     showVisitorCounter: () => {
-        getVisitorCount((n) => {
+        getVisitorCount().then(n => {
             let counter_e = document.getElementById('hidden-counter');
             counter_e.style = "height: 20px;";
             counter_e.textContent = "Посещений сайта за всё время: " + n;
-        })
+        });
     },
 }
 
