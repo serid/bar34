@@ -87,6 +87,31 @@ const my = {
             counter_e.textContent = "Посещений сайта за всё время: " + n;
         });
     },
+
+    book: () => {
+        let getValue = (id) => document.getElementById(id).value;
+
+        // input type="time"
+        let time = getValue("exampleInputTime1");
+
+        // textarea
+        let name = getValue("exampleInputName1");
+
+        // input type="tel"
+        let phone = getValue("exampleInputPhone1");
+
+        // textarea
+        let user_message = getValue("exampleInputMessage1");
+
+        let body = {time, name, phone, user_message};
+
+        let url = "booking.php";
+        let options = {
+            method: "POST",
+            body: JSON.stringify(body),
+        };
+        fetch(url, options).then();
+    }
 }
 
 window.my = my;
