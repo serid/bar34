@@ -45,6 +45,13 @@ const getVisitorCount = () => {
         .then(s => s.slice(4));
 }
 
+const updateBookingTodayLabel = () => {
+    let date = new Date();
+    const options = { month: 'long', day: 'numeric' };
+
+    document.getElementById("booking-today-label").innerText = "Сегодня, " + date.toLocaleDateString("ru-RU", options) + ".";
+}
+
 // Object for public functions in global scope to call from html events
 const my = {
     scrollToElement: (element) => {
@@ -94,6 +101,9 @@ const my = {
         // input type="time"
         let time = getValue("exampleInputTime1");
 
+        // number of people, select tag
+        let numberOfPeople = getValue("exampleInputNumber1");
+
         // textarea
         let name = getValue("exampleInputName1");
 
@@ -103,7 +113,7 @@ const my = {
         // textarea
         let user_message = getValue("exampleInputMessage1");
 
-        let body = {time, name, phone, user_message};
+        let body = {time, name, phone, user_message, numberOfPeople};
 
         let url = "booking.php";
         let options = {
@@ -119,6 +129,7 @@ window.my = my;
 const main = () => {
     saveScroll();
     countAVisit();
+    updateBookingTodayLabel();
 }
 
 main()
