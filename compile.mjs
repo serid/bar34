@@ -1,17 +1,18 @@
-// The script compiles site in `options.siteRoot` directory into `options.siteRoot`\newbuild.
-// Then it moves `options.siteRoot`\newbuild to `options.outputDirectory`.
-// Compilation process ignores filepaths containing `options.ignorePattern`;
-// Copies filepaths containing `options.copyPattern` without changing file names or contents;
-// Copies filepaths     containing `options.textFilePattern` changing file name to a randomly generated string AND changes all references to files with randomized names to correct names;
-// Copies filepaths not containing `options.textFilePattern` changing file name to a randomly generated string without changing file contents;
+// The script compiles site in `options.siteRoot` directory into `options.siteRoot`\newbuild,
+// then it moves `options.siteRoot`\newbuild to `options.outputDirectory`.
+// Compilation process ignores filepaths matching `options.ignorePattern`;
+// Copies filepaths matching `options.libPattern` without changing file names or contents;
+// Copies filepaths matching `options.textFilePattern` changing file name to a randomly generated string AND changes all references to files with randomized names to correct names;
+// Copies filepaths not matching `options.textFilePattern` changing file name to a randomly generated string without changing file contents;
 
 const options = {
     siteRoot: '.\\static\\',
     outputDirectory: '.\\build\\',
 
     ignorePattern: /\.rese/,
-    copyPattern: /(lib\\|.*\.php)/,
-    textFilePattern: /(\.html$|\.js$)/,
+    libPattern: /(lib\\)/,
+    entryPointPattern: /(\.html|\.php)$/,
+    textFilePattern: /(\.html|\.js)$/,
 }
 
 import {dirname, relative, resolve, extname} from "node:path";
@@ -104,7 +105,7 @@ const dostuff = async () => {
     filepaths = filepaths.filter((s) => !isIgnoredFile(s));
 
     // Copy library files verbatim
-    let isLibFile = (path) => options.copyPattern.test(path);
+    let isLibFile = (path) => options.libPattern.test(path);
     let libspaths = filepaths.filter((s) => isLibFile(s));
     for (const oldPath of libspaths) {
         let newPath = resolve('newbuild', oldPath);
@@ -118,31 +119,29 @@ const dostuff = async () => {
     let mapping = new Map();
     let replace_mapping = new Map();
     for (const oldPath of filepaths) {
-        // Mapping of old filenames to new filenames
-        let newPath = generator.next().value + extname(oldPath);
-        mapping.set(oldPath, newPath);
+        let newPath;
+        // If a file is an entry point, then don't modify its name
+        if (options.entryPointPattern.test(oldPath)) {
+            newPath = oldPath;
+        } else {
+            newPath = generator.next().value + extname(oldPath);
+        }
 
-        // In text source code paths use '/' as a delimeter and the replace_mapping should too.
+        // In text source code paths use '/' as a delimeter and the replace_mapping should too
         let pathInSourceCode = oldPath.replace(/\\/g, '/');
+
+        mapping.set(oldPath, newPath);
         replace_mapping.set(pathInSourceCode, newPath);
     }
 
-    // index.html has to be included in build but should not be renamed
-    // so we fix the mapping manually
-    mapping.set('index.html', 'index.html');
-    replace_mapping.set('index.html', 'index.html');
-
-    // Split files in two groups:
-    // 1) Simple (binary) files. They don't have relevant filenames in them.
-    // 2) Text files. They might have relevant filenames inside that need to be replaced.
-
+    // Don't replace paths inside binary files
     let isTextFile = (path) => options.textFilePattern.test(path);
 
-    let simplepaths = filepaths.filter((s) => !isTextFile(s));
+    let binarypaths = filepaths.filter((s) => !isTextFile(s));
     let textpaths = filepaths.filter((s) => isTextFile(s));
 
-    // Copy simple files verbatim
-    for (const oldPath of simplepaths) {
+    // Copy binary files verbatim
+    for (const oldPath of binarypaths) {
         let newPath = resolve('newbuild', mapping.get(oldPath));
         await myFsPromises.copyFile(oldPath, newPath);
     }
