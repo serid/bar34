@@ -956,14 +956,84 @@
 
         <br>
 
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-12 col-md-6">
+                <div class="jumbotron">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputTime1" id="booking-today-label">Сегодня</label>
+                                    <input type="time" autocomplete="off" required="required" class="form-control"
+                                           id="exampleInputTime1">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <select id="exampleInputNumber1">
+                                    <option value="1">на 1 человека</option>
+                                    <option value="2">на 2 человека</option>
+                                    <option value="3">на 3 человека</option>
+                                    <option value="4">на 4 человека</option>
+                                    <option value="5">на 5 человек</option>
+                                    <option value="6">на 6 человек</option>
+                                    <option value="7">на 7 человек</option>
+                                    <option value="8">на 8 человек</option>
+                                    <option value="9">на 9 человек</option>
+                                    <option value="10">на 10 человек</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Имя</label>
+                                    <input type="text" autocomplete="off" required="required" placeholder="Имя Фамилия"
+                                           class="form-control"
+                                           id="exampleInputName1">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputPhone1">Телефон</label>
+                                    <input type="tel" required="required" placeholder="+7 ___ ___-__-__"
+                                           class="form-control"
+                                           id="exampleInputPhone1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div class="form-group">
+                        <textarea autocomplete="off"
+                                  required="required"
+                                  placeholder="Пожелания (необязательно, будут учтены по возможности)"
+                                  class="form-control" id="exampleInputMessage1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <button class="my-button2" onclick="my.book()">ЗАБРОНИРОВАТЬ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
         <!--        <form action="message.php" method="post">-->
+        <!--
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="exampleInputTime1" id="booking-today-label">Сегодня</label>
-                        <input type="time" autocomplete="off" required="required" class="form-control" id="exampleInputTime1">
+                        <input type="time" autocomplete="off" required="required" class="form-control"
+                               id="exampleInputTime1">
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -987,14 +1057,16 @@
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="exampleInputName1">Имя</label>
-                        <input type="text" autocomplete="off" required="required" placeholder="Имя Фамилия" class="form-control"
+                        <input type="text" autocomplete="off" required="required" placeholder="Имя Фамилия"
+                               class="form-control"
                                id="exampleInputName1">
                     </div>
                 </div>
                 <div class="col-12 col-md-2">
                     <div class="form-group">
                         <label for="exampleInputPhone1">Телефон</label>
-                        <input type="tel" required="required" placeholder="+7 ___ ___-__-__" class="form-control" id="exampleInputPhone1">
+                        <input type="tel" required="required" placeholder="+7 ___ ___-__-__" class="form-control"
+                               id="exampleInputPhone1">
                     </div>
                 </div>
                 <div class="col-md-3"></div>
@@ -1014,11 +1086,11 @@
             <br>
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <!-- <button type="submit" class="my-button2">ЗАБРОНИРОВАТЬ</button>-->
                     <button class="my-button2" onclick="my.book()">ЗАБРОНИРОВАТЬ</button>
                 </div>
             </div>
         </div>
+        -->
         <!--        </form>-->
     </div>
 
