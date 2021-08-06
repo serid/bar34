@@ -1,10 +1,10 @@
 import {stat} from "node:fs/promises";
 
-export const type = (obj, fullClass) => {
+export const type = (obj, showFullClass) => {
 
     // get toPrototypeString() of obj (handles all types)
     // Early JS environments return '[object Object]' for null, so it's best to directly check for it.
-    if (fullClass) {
+    if (showFullClass) {
         return (obj === null) ? '[object Null]' : Object.prototype.toString.call(obj);
     }
     if (obj == null) {
