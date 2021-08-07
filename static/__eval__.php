@@ -47,22 +47,19 @@ HERE;
             if ($mysqli->connect_errno) {
                 echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
             }
-            
-            // if (!$mysqli->query("DROP TABLE IF EXISTS test") ||
-            //     !$mysqli->query("CREATE TABLE test(count INT)") ||
-            //     !$mysqli->query("INSERT INTO test(count) VALUE (1)")) {
-            //     echo "Table creation failed: (" . $mysqli->errno . ") " . $mysqli->error;
-            // }
-        
+
             $res = $mysqli->query(urldecode($_GET["data"]));
             if (!$res) {
                 echo "Query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
             
-            for ($row_no = $res->num_rows - 1; $row_no >= 0; $row_no--) {
+            for ($row_no = 0; $row_no < $res->num_rows; $row_no++) {
                 $res->data_seek($row_no);
                 $row = $res->fetch_assoc();
-                echo " " . $row_no . ": count = " . $row['count'] . "<br>";
+                echo " " . $row_no . ":" . "<br>";
+                foreach ($row as $field => $value) {
+                    echo "  " . $field . " = " . $value . "<br>";
+                }
             }
         }
     } else {
