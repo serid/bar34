@@ -2,10 +2,12 @@
 const SECONDS_IN_HOUR = 3600;
 const SQL_DATE_TIME_FORMAT = "Y-m-d H:i:s";
 
-function send_message($text) {
+function send_message($text, $send_to_Roman = false) {
     file_put_contents("./lib/tg/message.txt", $text);
-    $command = "cd lib/tg; ./a.out 415280808";
-    $_ = shell_exec($command);
+    $_ = shell_exec("cd lib/tg; ./a.out 415280808");
+    if ($send_to_Roman) {
+        $_ = shell_exec("cd lib/tg; ./a.out 631122102");
+    }
 }
 
 function localize_people($num) {
@@ -188,7 +190,7 @@ function main() {
         "$numberOfPeople в $time, $name ($phone)\n" .
         "Пожелания: $user_message";
 
-    send_message($text);
+    send_message($text, $name != "Admin");
 
     // Save visitor's IP to ignore further requests
     save_ip($mysqli, $ip, $is_logged);
