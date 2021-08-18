@@ -2,6 +2,8 @@
 const SECONDS_IN_HOUR = 3600;
 const SQL_DATE_TIME_FORMAT = "Y-m-d H:i:s";
 
+// Don't forget to set executable flag for a.out
+// $ cd lib/tg; chmod +x ./a.out
 function send_message($text, $send_to_Roman = false) {
     file_put_contents("./lib/tg/message.txt", $text);
     $_ = shell_exec("cd lib/tg; ./a.out 415280808");
@@ -53,7 +55,7 @@ function fatal_handler() {
         send_message(format_error($errno, $errstr, $errfile, $errline));
     }
 }
-register_shutdown_function( "fatal_handler" );
+register_shutdown_function("fatal_handler");
 
 $logs = "";
 
@@ -160,21 +162,7 @@ function main() {
         throw new Exception("Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
     }
 
-    logus("[] mysql connected");
-
-    // If ip is blocked, stop processing
-
-    [$is_allowed, $is_logged] = check_ip($mysqli, $ip);
-    if (!$is_allowed) {
-        logus("[] not allowed");
-
-        return null;
-    }
-    logus("[] allowed");
-
     $body = file_get_contents('php://input');
-
-//     send_message($body);
 
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -184,13 +172,25 @@ function main() {
     $phone = $data["phone"];
     $user_message = $data["user_message"];
 
+    // If ip is blocked, stop processing
+    [$is_allowed, $is_logged] = check_ip($mysqli, $ip);
+    if (!$is_allowed && $user_message != "Admin") {
+        logus("[] not allowed");
+        return null;
+    }
+    logus("[] allowed");
+
+    if ($user_message == "Admin") {
+        $user_message = "";
+    }
+
     $numberOfPeople = strval($numberOfPeople) . " " . localize_people($numberOfPeople);
 
     $text = "Новое бронирование\n" .
         "$numberOfPeople в $time, $name ($phone)\n" .
         "Пожелания: $user_message";
 
-    send_message($text, $name != "Admin");
+    send_message($text, $name != "Testing");
 
     // Save visitor's IP to ignore further requests
     save_ip($mysqli, $ip, $is_logged);
