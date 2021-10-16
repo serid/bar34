@@ -6,6 +6,7 @@ const SQL_DATE_TIME_FORMAT = "Y-m-d H:i:s";
 // $ cd lib/tg; chmod +x ./a.out
 function send_message($text, $send_to_Roman = false) {
     file_put_contents("./lib/tg/message.txt", $text);
+    $_ = shell_exec("cd lib/tg; chmod +x ./a.out");
     $_ = shell_exec("cd lib/tg; ./a.out 415280808");
     if ($send_to_Roman) {
         $_ = shell_exec("cd lib/tg; ./a.out 631122102");
