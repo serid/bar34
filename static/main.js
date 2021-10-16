@@ -1,3 +1,5 @@
+let bookingAlertAdded = false;
+
 const identity = (a) => a
 
 const saveScroll = () => {
@@ -47,7 +49,7 @@ const getVisitorCount = () => {
 
 const updateBookingTodayLabel = () => {
     let date = new Date();
-    const options = { month: 'long', day: 'numeric' };
+    const options = {month: 'long', day: 'numeric'};
 
     document.getElementById("booking-today-label").innerText = "Сегодня, " + date.toLocaleDateString("ru-RU", options) + ".";
 }
@@ -120,7 +122,19 @@ const my = {
             method: "POST",
             body: JSON.stringify(body),
         };
-        fetch(url, options).then();
+        fetch(url, options).then(() => {
+            if (bookingAlertAdded) return;
+
+            let newElement = document.createElement("div");
+            let newText = document.createTextNode("Столик успешно забронирован. Ждём вас!");
+            newElement.appendChild(newText);
+            newElement.className = "alert-success my-alert-success";
+
+            let alertElement = document.getElementById("alert");
+            alertElement.appendChild(newElement)
+
+            bookingAlertAdded = true;
+        });
     }
 }
 
@@ -132,4 +146,4 @@ const main = () => {
     updateBookingTodayLabel();
 }
 
-main()
+main();

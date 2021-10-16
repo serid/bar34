@@ -177,6 +177,11 @@ html:not([data-isnavtransparent='true']) #logo {
     background: none !important;
 }
 
+.my-alert-success {
+    padding: 1rem 1rem;
+    border-radius: .3rem;
+}
+
 #hidden-counter {
     transition: 0.2s;
 }
