@@ -188,8 +188,11 @@ function main() {
     $numberOfPeople = strval($numberOfPeople) . " " . localize_people($numberOfPeople);
 
     $text = "Новое бронирование\n" .
-        "$numberOfPeople в $time, $name ($phone)\n" .
-        "Пожелания: $user_message";
+        "$numberOfPeople в $time, $name ($phone)\n";
+
+    if ($user_message != "") {
+        $text .= "Пожелания: $user_message";
+    }
 
     send_message($text, $name != "Testing");
 

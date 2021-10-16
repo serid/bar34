@@ -1,5 +1,3 @@
-let bookingAlertAdded = false;
-
 const identity = (a) => a
 
 const saveScroll = () => {
@@ -56,6 +54,7 @@ const updateBookingTodayLabel = () => {
 
 // Object for public functions in global scope to call from html events
 const my = {
+    bookingAlertAdded: false,
     num: 1,
 
     setNumberOfPeople(n, text) {
@@ -131,7 +130,7 @@ const my = {
             body: JSON.stringify(body),
         };
         fetch(url, options).then(() => {
-            if (bookingAlertAdded) return;
+            if (this.bookingAlertAdded) return;
 
             let newElement = document.createElement("div");
             let newText = document.createTextNode("Столик успешно забронирован. Ждём вас!");
@@ -141,7 +140,7 @@ const my = {
             let alertElement = document.getElementById("alert");
             alertElement.appendChild(newElement)
 
-            bookingAlertAdded = true;
+            this.bookingAlertAdded = true;
         });
     }
 }
