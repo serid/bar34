@@ -56,6 +56,14 @@ const updateBookingTodayLabel = () => {
 
 // Object for public functions in global scope to call from html events
 const my = {
+    num: 1,
+
+    setNumberOfPeople(n, text) {
+        this.num = n;
+
+        document.getElementById("dropdownMenuButton").innerText = text;
+    },
+
     scrollToElement: (element) => {
         if (window.scrollY !== 0) {
             let navbar_height = document.getElementById("my-navbar").getBoundingClientRect().height;
@@ -97,14 +105,14 @@ const my = {
         });
     },
 
-    book: () => {
+    book() {
         let getValue = (id) => document.getElementById(id).value;
 
         // input type="time"
         let time = getValue("exampleInputTime1");
 
         // number of people, select tag
-        let numberOfPeople = getValue("exampleInputNumber1");
+        let numberOfPeople = this.num;
 
         // textarea
         let name = getValue("exampleInputName1");

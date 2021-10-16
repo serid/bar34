@@ -970,18 +970,23 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <select id="exampleInputNumber1">
-                                    <option value="1">на 1 человека</option>
-                                    <option value="2">на 2 человека</option>
-                                    <option value="3">на 3 человека</option>
-                                    <option value="4">на 4 человека</option>
-                                    <option value="5">на 5 человек</option>
-                                    <option value="6">на 6 человек</option>
-                                    <option value="7">на 7 человек</option>
-                                    <option value="8">на 8 человек</option>
-                                    <option value="9">на 9 человек</option>
-                                    <option value="10">на 10 человек</option>
-                                </select>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        На 1 человека
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(1, 'На 1 человека')">На 1 человека</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(2, 'На 2 человека')">На 2 человека</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(3, 'На 3 человека')">На 3 человека</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(4, 'На 4 человека')">На 4 человека</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(5, 'На 5 человек')">На 5 человек</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(6, 'На 6 человек')">На 6 человек</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(7, 'На 7 человек')">На 7 человек</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(8, 'На 8 человек')">На 8 человек</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(9, 'На 9 человек')">На 9 человек</a>
+                                        <a class="dropdown-item" onclick="my.setNumberOfPeople(10, 'На 10 человек')">На 10 человек</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
