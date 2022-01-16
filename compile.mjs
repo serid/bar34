@@ -10,9 +10,9 @@ const options = {
     outputDirectory: '.\\build\\',
 
     ignorePattern: /\.rese/,
-    libPattern: /(lib\\)/,
+    libPattern: /^(lib\\)/,
     entryPointPattern: /(\.html|\.php)$/,
-    textFilePattern: /(\.html|\.js)$/,
+    textFilePattern: /(\.html|\.js|\.php)$/,
 }
 
 import {dirname, relative, resolve, extname} from "node:path";
