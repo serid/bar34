@@ -140,12 +140,8 @@ function save_ip($mysqli, $ip, $is_logged) {
         $sql = "INSERT INTO blocks (ip, date) VALUES('$ip', '$blocked_until_datetime')";
     }
 
-    $res = sql_request($mysqli, $sql);
-
-    $res->data_seek(0);
-    $row = $res->fetch_assoc();
-
-    logus("save_ip result" . dictionary_to_string($row));
+    // res is not false
+    $_ = sql_request($mysqli, $sql);
 }
 
 function main() {
