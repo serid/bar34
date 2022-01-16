@@ -1,17 +1,9 @@
 <?php
+include "util.php";
+init_util();
+
 const SECONDS_IN_HOUR = 3600;
 const SQL_DATE_TIME_FORMAT = "Y-m-d H:i:s";
-
-// Don't forget to set executable flag for a.out
-// $ cd lib/tg; chmod +x ./a.out
-function send_message($text, $send_to_Roman = false) {
-    file_put_contents("./lib/tg/message.txt", $text);
-    $_ = shell_exec("cd lib/tg; chmod +x ./a.out");
-    $_ = shell_exec("cd lib/tg; ./a.out 415280808");
-    if ($send_to_Roman) {
-        $_ = shell_exec("cd lib/tg; ./a.out 631122102");
-    }
-}
 
 function localize_people($num) {
     if ($num == 1) {
@@ -38,25 +30,6 @@ function format_error( $errno, $errstr, $errfile, $errline ) {
 
     return "Fatal error: $errstr\nin $errfile:$errline (errno: $errno)\n$trace";
 }
-
-function fatal_handler() {
-    $errfile = "unknown file";
-    $errstr  = "shutdown";
-    $errno   = E_CORE_ERROR;
-    $errline = 0;
-
-    $error = error_get_last();
-
-    if($error !== NULL) {
-        $errno   = $error["type"];
-        $errfile = $error["file"];
-        $errline = $error["line"];
-        $errstr  = $error["message"];
-
-        send_message(format_error($errno, $errstr, $errfile, $errline));
-    }
-}
-register_shutdown_function("fatal_handler");
 
 $logs = "";
 
