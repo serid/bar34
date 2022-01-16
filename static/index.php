@@ -1,3 +1,226 @@
+<?php
+include "util.php";
+
+// parse a .CSV line containing commas and quoted strings
+function parse_csv($line) {
+    $accumulator = "";
+    $i = 0;
+    foreach (explode("\"", $line) as $column) {
+        if ($i % 2 === 0) {
+            $accumulator .= str_replace(",", ";", $column);
+        } else {
+            $accumulator .= $column;
+        }
+
+        $i += 1;
+    }
+
+    $columns = explode(";", $accumulator);
+    return $columns;
+}
+
+// parse a semicolon-separated line without quotes
+// this function also trims whitespace in columns, but it's not neccessary since html ignores whitespace anyways
+function parse_scsv($line) {
+    $columns = explode(";", $line);
+    $trimmer = function ($column) {
+        return trim($column);
+    };
+    return array_map($trimmer, $columns);
+}
+
+class Row {
+    public $is_bold;
+    public $cells;
+
+    public function __construct($is_bold, $cells) {
+        $this->is_bold = $is_bold;
+        $this->cells = $cells;
+    }
+}
+
+function read_table_from_file($filename) {
+    $filetext = file_get_contents($filename);
+    if ($filetext === false) {
+        return false;
+    }
+
+    // Skip UTF-8 BOM (real)
+    if (strlen($filetext) >= 3 &&
+        ord($filetext[0]) === 0xEF &&
+        ord($filetext[1]) === 0xBB &&
+        ord($filetext[2]) === 0xBF) {
+        $filetext = substr($filetext, 3);
+    }
+
+    $table = array();
+    foreach (explode("\n", $filetext) as $line) {
+        if (strlen(trim($line)) === 0) {
+            // Empty row, skip
+            continue;
+        }
+
+        $is_bold = $line[0] == ">";
+        if ($is_bold) {
+            // Skip '>'
+            $line = substr($line, 1);
+        }
+
+        $cells = parse_scsv($line);
+
+        // push empty strings until array has size 4
+        $n = 4 - count($cells);
+        for ($i = 0; $i < $n; $i++) {
+            array_push($cells, "");
+        }
+
+        array_push($table, new Row($is_bold, $cells));
+    }
+    return $table;
+}
+
+// now that i think about it, why didn't i use flex-wrap: wrap?
+function get_dish_table() {
+    $text = "";
+
+    <<<END
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-12 col-md-4">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="2">Тапас</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Тапас с паштетом из куры и грецким орехом</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>Тапас с моцареллой, соусом песто и лососем</td>
+                    <td>140</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-md-4">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="2">Тапас</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Тапас с паштетом из куры и грецким орехом</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>Тапас с моцареллой, соусом песто и лососем</td>
+                    <td>140</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    END;
+
+    $table = read_table_from_file("./dish.txt");
+    // print many rows
+    for ($i = 0; $i < count($table);) {
+        // print row header
+        $text .= <<<END
+        <div class="row">
+        <div class="col-md-2"></div>
+        END;
+
+        // print two html tables before going to the next row
+        for ($j = 0; $j < 2; $j++) {
+            // print table header
+            $text .= <<<END
+            <div class="col-12 col-md-4">
+            <table class="table">
+            END;
+
+            for ($k = 0; $i < count($table); $k++) {
+                if ($i < count($table)) {
+                    $row = $table[$i];
+                    // $i is not incremented here
+                }
+
+                if ($row->is_bold) {
+                    if ($k === 0) {
+                        // bold row in first table row
+                        $i++;
+                        $text .= <<<END
+                        <thead>
+                        <tr>
+                            <th colspan="2">{$row->cells[0]}</th>
+                        </tr>
+                        </thead>
+                        END;
+                    } else {
+                        // another bold row. let the next iteration of $j loop handle it
+                        break;
+                    }
+                } else {
+                    $i++;
+                    $text .= "
+                    <tr>
+                        <td>{$row->cells[0]}</td>
+                        <td>{$row->cells[1]}</td>
+                    </tr>";
+                }
+            }
+
+            // print table footer
+            $text .= "
+            </table>
+            </div>";
+        }
+
+        // print row footer
+        $text .= <<<END
+        <div class="col-md-2"></div>
+        </div>
+        END;
+    }
+
+    return $text;
+}
+
+function get_wine_table() {
+    $text = "";
+    foreach (read_table_from_file("./wine.txt") as $row) {
+        if (!$row->is_bold) {
+            $text .= "
+            <tr>
+                <td>{$row->cells[0]}<br>
+                    <small>{$row->cells[1]}</small>
+                </td>
+                <td>{$row->cells[2]}</td>
+                <td>{$row->cells[3]}</td>
+            </tr>";
+        } else {
+            $text .= <<<END
+            <thead>
+            <tr>
+                <th colspan="1">{$row->cells[0]}</th>
+                <th colspan="1">{$row->cells[1]}</th>
+                <th colspan="1">{$row->cells[2]}</th>
+            </tr>
+            </thead>
+            END;
+        }
+    }
+
+    return $text;
+}
+?>
+
 <!doctype html>
 <html lang="en" data-collapsed="true">
 
@@ -331,9 +554,16 @@
     <!-- Dish Menu table -->
     <div class="my-page-row my-page-row-bright">
         <h1 style="text-align: center; margin-bottom: 25px;">Меню</h1>
+        <?php
+        init_util();
+
+        echo get_dish_table();
+        ?>
+        <hr>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-12 col-md-4">
+                <span>Предыдущая таблица</span>
                 <table class="table">
                     <thead>
                     <tr>
@@ -645,6 +875,13 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
+                <table class="table">
+                    <?php
+                    echo get_wine_table();
+                    ?>
+                </table>
+                <hr>
+                <span>Предыдущая таблица</span>
                 <table class="table">
                     <thead>
                     <tr>
