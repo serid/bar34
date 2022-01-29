@@ -802,7 +802,7 @@ function get_wine_table() {
         <!-- Left -->
         <div class="col-md-2"></div>
         <div class="col-12 col-md-4">
-            <h2 onclick="my.showVisitorCounter();">КОНТАКТЫ</h2>
+            <h2 onclick="/*my.showVisitorCounter();*/ window.location.href = '/manager.html';">КОНТАКТЫ</h2>
             <p id="hidden-counter" style="height: 0; overflow: hidden;">
                 This text will be replaced with visitor count
             </p>

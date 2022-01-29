@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-collapsed="true">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> -->
+
+    <!-- Mobirise Icons -->
+    <link rel="stylesheet" href="lib/mobirise/style.css">
+
+    <!-- My styles CSS -->
+    <link rel="stylesheet" href="mystyles.css">
+
+    <!-- Font: Rubik Light 300 -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900,300i,400i,500i,600i,700i,800i,900i&display=swap"
+            rel="stylesheet">
+
+    <title>Bar 3/4</title>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="my-page-row my-page-row-bright">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <h1 id="heading-text">Управление контентом</h1>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-12 col-md-6">
+                <div class="jumbotron">
+                    <div class="container-fluid">
+                        <div id="auth-block">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p>Для доступа к форме управления контентом, введите код</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="inputKey">Код</label>
+                                        <input type="text" autocomplete="off" required="required" placeholder="Код"
+                                               class="form-control"
+                                               id="inputKey">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="col-auto">
+                                        <button class="" onclick="my.auth()">ВОЙТИ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="upload-block" style="display: none">
+                            <form method="post" action="handle_files.php" enctype="multipart/form-data">
+                                <!-- This hidden field will be filled in with the acces key and sent with the form.
+                                 I could send the form manualy with JS, but I don't want to mess with files. -->
+                                <input type="text" name="key-field" id="inputHiddenKey" style="display: none;">
+                                <div class="row my-upload-row">
+                                    <div class="col-12 col-md-4">
+                                        <label for="inputDishFile">Меню</label>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <input type="file" name="dish-file-field" accept=".txt"
+                                               id="inputDishFile">
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <a href="/lib/tg/dish.txt" download="dish.txt">[Скачать таблицу]</a>
+                                    </div>
+                                </div>
+                                <div class="row my-upload-row">
+                                    <div class="col-12 col-md-4">
+                                        <label for="inputWineFile">Винная карта</label>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <input type="file" name="wine-file-field" accept=".txt"
+                                               id="inputWineFile">
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <a href="/lib/tg/wine.txt" download="wine.txt">[Скачать таблицу]</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="" type="submit">ЗАГРУЗИТЬ</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button onclick="my.deauth();">ВЫХОД</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="alert">
+                    <!-- Notification on successfull booking goes here -->
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- JQuery, Popper, Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+<script type="module" src="manager.js"></script>
+</body>
+
+</html>

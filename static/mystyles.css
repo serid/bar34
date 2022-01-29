@@ -182,6 +182,17 @@ html:not([data-isnavtransparent='true']) #logo {
     border-radius: .3rem;
 }
 
+.my-upload-row {
+    border-style: solid;
+    border-color: #111111;
+    border-radius: 0.5em;
+
+    padding-top: 0.2em;
+
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
 #hidden-counter {
     transition: 0.2s;
 }
