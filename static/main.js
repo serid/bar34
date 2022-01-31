@@ -108,19 +108,19 @@ const my = {
         let getValue = (id) => document.getElementById(id).value;
 
         // input type="time"
-        let time = getValue("exampleInputTime1");
+        let time = getValue("inputTime");
 
         // number of people, select tag
         let numberOfPeople = this.num;
 
         // textarea
-        let name = getValue("exampleInputName1");
+        let name = getValue("inputName");
 
         // input type="tel"
-        let phone = getValue("exampleInputPhone1");
+        let phone = getValue("inputPhone");
 
         // textarea
-        let user_message = getValue("exampleInputMessage1");
+        let user_message = getValue("inputMessage");
 
         let body = {time, name, phone, user_message, numberOfPeople};
 
