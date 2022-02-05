@@ -496,6 +496,7 @@ function get_wine_table() {
 </div>
 
 <div class="container-fluid">
+    <!--
     <div id="dish-gallery" class="my-page-row my-page-row-bright">
         <div style="padding-bottom: 20px;" class="row justify-content-center">
             <div class="card-deck">
@@ -548,6 +549,7 @@ function get_wine_table() {
             </div>
         </div>
     </div>
+    -->
 
     <hr id="dish-menu-start">
 
