@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /lib
+Disallow: /50x.html
+Disallow: /__eval__.php
+Disallow: /booking.php
+Disallow: /handle_files.php
+Disallow: /increment.php
+Disallow: /manager.html
+Disallow: /util.php
