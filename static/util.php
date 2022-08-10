@@ -18,7 +18,13 @@ function send_message($text, $send_to_Roman = false) {
         $_ = shell_exec("chmod +x ./a.out");
         $_ = shell_exec("./a.out 415280808");
         if ($send_to_Roman) {
-            $_ = shell_exec("./a.out 631122102");
+            $_ = shell_exec("./a.out -787515029");
+
+            // Roman:
+            // $_ = shell_exec("./a.out 631122102");
+
+            // old group:
+            // $_ = shell_exec("./a.out -1001200110944");
         }
     }
 }
